@@ -4,7 +4,7 @@ import MealItem from "./MealItem";
 type Props = {
 	meals: Meal[];
 };
-type Meal = {
+export type Meal = {
 	id: string;
 	title: string;
 	slug: string;

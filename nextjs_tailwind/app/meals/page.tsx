@@ -7,6 +7,8 @@ import LoadingOut from "./loading-out";
 
 const Meals = async () => {
 	const meals = await getMeals();
+	console.log("featching...");
+
 	return <MealsGrid meals={meals} />;
 };
 
