@@ -4,11 +4,20 @@ import { getMeal } from "@/lib/meals";
 import classes from "./page.module.css";
 import { Meal } from "@/components/meals/MealsGrid";
 import { notFound } from "next/navigation";
+import { describe } from "node:test";
 
 type Params = {
 	params: { mealSlug: string };
 };
-const ShareDetailsPage = ({ params }: Params) => {
+export async function generateMetadata({ params }: Params) {
+	const meal = getMeal(params.mealSlug);
+	if (!meal) {
+		notFound();
+	}
+	return { title: meal.title, description: meal.summary };
+}
+
+const MealDetailsPage = ({ params }: Params) => {
 	const meal = getMeal(params.mealSlug);
 	if (!meal) {
 		notFound();
@@ -38,4 +47,4 @@ const ShareDetailsPage = ({ params }: Params) => {
 	);
 };
 
-export default ShareDetailsPage;
+export default MealDetailsPage;
