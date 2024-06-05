@@ -14,7 +14,7 @@ export type Meal = {
 };
 const MealsGrid = ({ meals }: any) => {
 	return (
-		<ul className={classes.meals}>
+		<ul className="w-90p max-w-90rem grid gap-20 my-8 mx-auto grid-cols-meals">
 			{meals.map((meal: Meal) => (
 				<li key={meal.id}>
 					<MealItem {...meal} />

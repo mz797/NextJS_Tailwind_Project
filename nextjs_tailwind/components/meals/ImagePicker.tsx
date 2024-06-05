@@ -1,6 +1,5 @@
 "use client";
-import React, { RefAttributes, useRef, useState } from "react";
-import classes from "./imagePicker.module.css";
+import React, { useRef, useState } from "react";
 import Image from "next/image";
 
 type Props = {
@@ -31,20 +30,17 @@ const ImagePicker = ({ label, name }: Props) => {
 	console.log(image);
 
 	return (
-		<div className={classes.picker}>
-			<label htmlFor={name}>{label}</label>
-			<div className={classes.controls}>
-				<div className={classes.preview}>
-					{!image && <p>No image picked yet!</p>}
-					{typeof image === "object" && (
-						<Image
-							src={(image as ArrayBuffer)?.toString()}
-							alt="The image selected by user"
-							fill
-						/>
-					)}
+		<div>
+			<label htmlFor={name} className="label">
+				{label}
+			</label>
+			<div className="flex items-start gap-6 mb-4">
+				<div className="w-40 h-40 border  border-pickerColor flex justify-center items-center text-center text-pickerColor relative">
+					{!image && <p className="m-0 p-4">No image picked yet!</p>}
+
 					{typeof image === "string" && (
 						<Image
+							className="object-cover"
 							src={image}
 							alt="The image selected by user"
 							fill
@@ -53,7 +49,7 @@ const ImagePicker = ({ label, name }: Props) => {
 				</div>
 				<input
 					ref={ref}
-					className={classes.input}
+					className="hidden"
 					type="file"
 					id={name}
 					accept="image/png. image/jpg"
@@ -61,7 +57,7 @@ const ImagePicker = ({ label, name }: Props) => {
 					onChange={handleImageChange}
 				/>
 				<button
-					className={classes.button}
+					className="border-none py-2 px-6 rounded-md inherit bg-pickerColor  duration-500 hover:bg-pickerColorHover focus:bg-pickerColorHover"
 					type="button"
 					onClick={handlePickClick}>
 					Pick Image

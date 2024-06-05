@@ -9,7 +9,7 @@ const MainHeader = () => {
 	console.log(path.startsWith("/meals"));
 
 	return (
-		<header className={"flex justify-between  items-center py-8 px-4"}>
+		<header className={"flex justify-between items-center py-8 px-4"}>
 			<Link
 				href="/"
 				className={

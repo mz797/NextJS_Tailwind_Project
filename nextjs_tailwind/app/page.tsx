@@ -4,7 +4,7 @@ import Link from "next/link";
 export default function Home() {
 	return (
 		<>
-			<header className="flex gap-12 my-12 mx-auto w-11/12 max-6xl ">
+			<header className="flex items-center gap-12 my-12 mx-auto w-11/12 max-6xl ">
 				<div className="h-96" style={{ width: "40rem" }}>
 					<ImageSlideshow />
 				</div>

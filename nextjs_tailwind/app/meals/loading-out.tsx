@@ -1,7 +1,13 @@
 import React from "react";
-import classes from "./loading.module.css";
 const LoadingOut = () => {
-	return <p className={classes.loading}>Featching meals...</p>;
+	return (
+		<p
+			className={
+				" text-5xl text-center text-light  animate-flash font-bold "
+			}>
+			Featching meals...
+		</p>
+	);
 };
 
 export default LoadingOut;

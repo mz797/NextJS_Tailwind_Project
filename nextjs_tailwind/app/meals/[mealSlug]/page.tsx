@@ -25,21 +25,33 @@ const MealDetailsPage = ({ params }: Params) => {
 	meal.instructions = meal.instructions.replace(/\n/g, "</br>");
 	return (
 		<>
-			<header className={classes.header}>
-				<div className={classes.image}>
-					<Image src={meal.image} fill alt="" />
+			<header className="flex py-8 px-4 gap-12 m-auto max-w-80rem">
+				<div className="relative h-80 w-30rem">
+					<Image
+						src={meal.image}
+						fill
+						alt=""
+						className="object-cover rounded-[8px] shadow-md anima animate-slideInFromLeft "
+					/>
 				</div>
-				<div className={classes.headerText}>
-					<h1>{meal.title}</h1>
-					<p className={classes.creator}>
-						by <a href={`mailto:${meal.email}`}>{meal.creator}</a>
+				<div className="pt-2 px-4 pb-0 text-light max-w-40rem animate-slideInFromRight ">
+					<h1 className="m-0 text-6xl uppercase drop-shadow-xl  ">
+						{meal.title}
+					</h1>
+					<p className=" text-2xl italic">
+						by{" "}
+						<a
+							href={`mailto:${meal.email}`}
+							className="bg-clip-text text-transparent bg-gradient-to-r from-gradient1 to-gradient2 hover:from-gradient2 hover:to-gradient1 focus:from-gradient2 focus:to-gradient1">
+							{meal.creator}
+						</a>
 					</p>
-					<p className={classes.summary}>{meal.summary}</p>
+					<p className="text-2xl">{meal.summary}</p>
 				</div>
 			</header>
 			<main>
 				<p
-					className={classes.instructions}
+					className="text-lg bg-bg rounded-2xl shadow-lg p-8 my-8 mx-auto w-90p animate-slideInFromBottom "
 					dangerouslySetInnerHTML={{ __html: meal.instructions }}></p>
 			</main>
 			;

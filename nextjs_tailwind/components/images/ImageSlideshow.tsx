@@ -9,7 +9,6 @@ import macncheeseImg from "@/assets/macncheese.jpg";
 import pizzaImg from "@/assets/pizza.jpg";
 import schnitzelImg from "@/assets/schnitzel.jpg";
 import tomatoSaladImg from "@/assets/tomato-salad.jpg";
-import classes from "./imageSlideshow.module.css";
 
 const images = [
 	{ image: burgerImg, alt: "A delicious, juicy burger" },
@@ -35,14 +34,16 @@ export default function ImageSlideshow() {
 	}, []);
 
 	return (
-		<div className={classes.slideshow}>
+		<div className="relative w-full h-full rounded-lg overflow-hidden">
 			{images.map((image, index) => (
 				<Image
 					key={index}
 					src={image.image}
-					className={
-						index === currentImageIndex ? classes.active : ""
-					}
+					className={`w-full h-full object-cover absolute top-0 left-0 opacity-0 transform scale-110 -translate-x-4 -rotate-6 duration-500  ${
+						index === currentImageIndex
+							? " z-10 opacity-100 transform scale-100 translate-x-0 rotate-0  "
+							: ""
+					}`}
 					alt={image.alt}
 				/>
 			))}
