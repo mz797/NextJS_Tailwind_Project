@@ -12,7 +12,6 @@ const ShareDetailsPage = ({ params }: Params) => {
 	const meal = getMeal(params.mealSlug);
 	if (!meal) {
 		notFound();
-		return null;
 	}
 	meal.instructions = meal.instructions.replace(/\n/g, "</br>");
 	return (

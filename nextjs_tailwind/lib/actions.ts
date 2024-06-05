@@ -2,6 +2,7 @@
 
 import { redirect } from "next/navigation";
 import { saveMeal } from "./meals";
+import { revalidatePath } from "next/cache";
 const isInvalidText = (value: string | undefined) => {
 	return !value || value.trim() === "";
 };
@@ -29,5 +30,6 @@ export const shareMeal = async (
 			message: "Invalid input",
 		};
 	await saveMeal(meal);
+	revalidatePath("/meals", "layout"); // layout - all nested paths will be revalidated
 	redirect("/meals");
 };
